@@ -31,13 +31,13 @@ export default function HeroSection() {
               I specialize in building robust and dynamic web applications.
             </p>
             <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
-              leveraging{" "}
+              Leveraging{" "}
               <span className="text-orange-400">Html Css Javascript</span> for
-              intuitive user interfaces and{" "}
-              <span className="text-blue-400">React</span> for powerful frontend
-              with{" "}
+              intuitive user interfaces,{" "}
+              <span className="text-blue-400">React</span> for powerful frontend UI
+              and{" "}
               <span className="text-green-400">
-                Django and Django rest framework
+                Django/Django rest framework
               </span>{" "}
               for Scalable backend solutions
             </p>
