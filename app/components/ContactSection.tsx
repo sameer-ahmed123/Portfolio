@@ -4,24 +4,26 @@ import { motion } from "framer-motion";
 
 export default function ContactSection() {
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="contact" className="py-16 px-4 scroll-mt-24">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="space-y-8"
+          className="rounded-3xl border border-white/80 bg-white/90 p-8 md:p-12 shadow-lg shadow-sky-100/80 backdrop-blur-sm text-center"
         >
-          <h2 className="text-3xl font-bold">
+          <p className="font-mono text-xs uppercase tracking-widest text-slate-400 mb-3">
+            Get in touch
+          </p>
+          <h2 className="text-3xl font-bold text-slate-900 mb-4">
             Let&apos;s Build Something Amazing
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-slate-600 max-w-xl mx-auto mb-8">
             Ready to bring your ideas to life? Let&apos;s work together on your
             next project.
           </p>
 
-          {/* Location */}
-          <div className="flex items-center justify-center gap-2 text-gray-400">
+          <div className="flex items-center justify-center gap-2 text-slate-500 mb-8">
             <svg
               className="w-5 h-5"
               fill="none"
@@ -41,14 +43,15 @@ export default function ContactSection() {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            <span>Rawalpindi , RWP</span>
+            <span className="font-mono text-xs uppercase tracking-wider">
+              Rawalpindi, RWP
+            </span>
           </div>
 
-          {/* Contact Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
             <a
               href="mailto:sameerkhanjan123@gmail.com"
-              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-medium hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-600 px-8 py-3 font-semibold text-white hover:bg-orange-500 transition-colors"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
@@ -59,7 +62,7 @@ export default function ContactSection() {
             <a
               href="/resume.pdf"
               target="_blank"
-              className="px-8 py-3 bg-black border border-gray-800 rounded-lg font-medium hover:bg-gray-900 transition-colors inline-flex items-center justify-center gap-2"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-8 py-3 font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -67,54 +70,44 @@ export default function ContactSection() {
                   d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
                   clipRule="evenodd"
                 />
-                <path
-                  fillRule="evenodd"
-                  d="M8 11a1 1 0 100 2h4a1 1 0 100-2H8zm0-4a1 1 0 100 2h4a1 1 0 100-2H8z"
-                  clipRule="evenodd"
-                />
               </svg>
               View Resume
             </a>
           </div>
 
-          {/* Links */}
-          <div className="flex justify-center gap-6">
+          <div className="flex justify-center gap-4">
             <a
               href="https://github.com/sameer-ahmed123"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-lg"
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-slate-500 hover:text-slate-900 hover:bg-white transition-colors"
+              aria-label="GitHub"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
+              <span className="font-mono text-[10px] uppercase">Github</span>
             </a>
-          </div>
-          <div className="flex justify-center gap-6">
             <a
-              href="whatsapp://send?phone=+923275125741&text=Hello!!"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "5px",
-                flexDirection: "column",
-              }}
+              href="whatsapp://send?phone=+923390143632&text=Hello!!"
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-slate-500 hover:text-slate-900 hover:bg-white transition-colors flex flex-col items-center gap-1"
+              aria-label="WhatsApp"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-6"
+                className="w-6 h-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
                 />
               </svg>
-              <p style={{ cursor: "pointer" }}>whatsapp</p>
+              <span className="font-mono text-[10px] uppercase">WhatsApp</span>
             </a>
           </div>
         </motion.div>

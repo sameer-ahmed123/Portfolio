@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-	background-color: #000;
+html {
+  scroll-behavior: smooth;
 }
+
+body {
+  background-color: #e0f2fe;
+  color: #0f172a;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mermaid-diagram .node rect,
+.mermaid-diagram .node circle,
+.mermaid-diagram .node polygon {
+  stroke-width: 1.5px;
+}
+
+/* Hide scrollbar for preview embed iframe */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

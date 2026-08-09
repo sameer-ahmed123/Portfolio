@@ -3,166 +3,158 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+const skillCards = [
+  {
+    id: "frontend" as const,
+    label: "Frontend",
+    color: "sky",
+    items: [
+      "HTML, CSS & JavaScript",
+      "React & Component-Based UIs",
+      "Responsive Designs",
+    ],
+  },
+  {
+    id: "backend" as const,
+    label: "Backend",
+    color: "violet",
+    items: [
+      "Django Web Framework",
+      "RESTful API Development with DRF",
+      "Database Management (PostgreSQL)",
+      "Authentication & Authorization",
+    ],
+  },
+  {
+    id: "devops" as const,
+    label: "Tools",
+    color: "teal",
+    items: [
+      "Version Control (Git)",
+      "RESTful API Consumption",
+      "Problem Solving & Debugging",
+    ],
+  },
+];
+
+const colorMap = {
+  sky: {
+    active: "border-sky-400 bg-sky-50 shadow-sky-100",
+    dot: "bg-sky-500",
+    title: "text-sky-700",
+  },
+  violet: {
+    active: "border-violet-400 bg-violet-50 shadow-violet-100",
+    dot: "bg-violet-500",
+    title: "text-violet-700",
+  },
+  teal: {
+    active: "border-teal-400 bg-teal-50 shadow-teal-100",
+    dot: "bg-teal-500",
+    title: "text-teal-700",
+  },
+};
+
+const techPills = [
+  "HTML & CSS",
+  "JavaScript & React",
+  "Django",
+  "Next.js",
+  "Django Rest Framework",
+];
+
 export default function HeroSection() {
   const [selectedStack, setSelectedStack] = useState<
     "frontend" | "backend" | "devops" | null
   >(null);
 
   return (
-    <section className="min-h-screen relative overflow-hidden py-24 md:py-0">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-      </div>
-
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-8 md:pt-0">
+    <section
+      id="about"
+      className="min-h-screen relative pt-28 pb-16 px-4 scroll-mt-24"
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Hero bento header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8 md:mb-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"
         >
-          <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
-            <h1 className="text-4xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500">
+          <div className="md:col-span-2 rounded-3xl border border-white/80 bg-white/90 p-8 shadow-lg shadow-sky-100/80 backdrop-blur-sm">
+            <p className="font-mono text-xs uppercase tracking-widest text-slate-400 mb-3">
+              Full Stack Developer
+            </p>
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-3">
               Sameer Ahmed Jan
             </h1>
-            <h2 className="text-2xl md:text-4xl font-bold text-white">
-              Full Stack Developer
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-              I specialize in building robust and dynamic web applications.
-            </p>
-            <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
-              Leveraging{" "}
-              <span className="text-orange-400">Html Css Javascript</span> for
-              intuitive user interfaces,{" "}
-              <span className="text-blue-400">React</span> for powerful frontend UI
-              and{" "}
-              <span className="text-green-400">
-                Django/Django rest framework
-              </span>{" "}
-              for Scalable backend solutions
+            <p className="text-slate-600 text-lg leading-relaxed max-w-xl">
+              I specialize in building robust and dynamic web applications —
+              from intuitive user interfaces to scalable backend solutions.
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8">
-            <span className="px-3 md:px-4 py-1.5 md:py-2 bg-blue-500/10 rounded-full text-blue-400 text-xs md:text-sm">
-              HTML & CSS
-            </span>
-            <span className="px-3 md:px-4 py-1.5 md:py-2 bg-purple-500/10 rounded-full text-purple-400 text-xs md:text-sm">
-              JavaScript & React
-            </span>
-            <span className="px-3 md:px-4 py-1.5 md:py-2 bg-teal-500/10 rounded-full text-teal-400 text-xs md:text-sm">
-              Django
-            </span>
-            <span className="px-3 md:px-4 py-1.5 md:py-2 bg-blue-500/10 rounded-full text-blue-400 text-xs md:text-sm">
-              Next.js (basic)
-            </span>
-            <span className="px-3 md:px-4 py-1.5 md:py-2 bg-purple-500/10 rounded-full text-purple-400 text-xs md:text-sm">
-              Django Rest Framework
-            </span>
+
+          <div className="rounded-3xl border border-white/80 bg-white/90 p-6 shadow-lg shadow-sky-100/80 backdrop-blur-sm flex flex-col justify-center">
+            <p className="font-mono text-xs uppercase tracking-widest text-slate-400 mb-4">
+              Stack
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {techPills.map((pill) => (
+                <span
+                  key={pill}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600"
+                >
+                  {pill}
+                </span>
+              ))}
+            </div>
           </div>
         </motion.div>
 
-        {/* Interactive System Architecture */}
-        <div className="w-full max-w-5xl mx-auto relative px-2 md:px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-gray-800 p-4 md:p-8"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-              {/* Frontend Layer */}
-              <div
-                className={`p-4 md:p-6 rounded-lg transition-colors border-2 ${
-                  selectedStack === "frontend"
-                    ? "bg-blue-500/20 border-blue-500/50"
-                    : "bg-gray-800/50 hover:bg-gray-800/80 border-transparent"
-                }`}
-                onMouseEnter={() => setSelectedStack("frontend")}
-                onMouseLeave={() => setSelectedStack(null)}
-              >
-                <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-blue-400">
-                  Frontend Skills
-                </h3>
-                <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-400">
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                    HTML, CSS & JavaScript
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                    React & Component-Based UIs
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                    Responsive Designs
-                  </li>
-                </ul>
-              </div>
+        {/* Skills bento grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+        >
+          {skillCards.map((card) => {
+            const colors = colorMap[card.color as keyof typeof colorMap];
+            const isActive = selectedStack === card.id;
 
-              {/* Backend Layer */}
+            return (
               <div
-                className={`p-4 md:p-6 rounded-lg transition-colors border-2 ${
-                  selectedStack === "backend"
-                    ? "bg-purple-500/20 border-purple-500/50"
-                    : "bg-gray-800/50 hover:bg-gray-800/80 border-transparent"
+                key={card.id}
+                className={`rounded-3xl border-2 p-6 transition-all cursor-default ${
+                  isActive
+                    ? `${colors.active} shadow-lg`
+                    : "border-white/80 bg-white/90 shadow-md shadow-sky-100/60 hover:shadow-lg"
                 }`}
-                onMouseEnter={() => setSelectedStack("backend")}
+                onMouseEnter={() => setSelectedStack(card.id)}
                 onMouseLeave={() => setSelectedStack(null)}
               >
-                <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-purple-400">
-                  Backend Expertise
+                <p className="font-mono text-xs uppercase tracking-widest text-slate-400 mb-2">
+                  {card.label}
+                </p>
+                <h3 className={`text-lg font-bold mb-4 ${colors.title}`}>
+                  {card.label} Skills
                 </h3>
-                <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-400">
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-                    Django Web Framework
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-                    RESTful API Development with DRF
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-                    Database Management (e.g., PostgreSQL)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-                    Authentication & Authorization
-                  </li>
+                <ul className="space-y-2">
+                  {card.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-center gap-2 text-sm text-slate-600"
+                    >
+                      <span
+                        className={`h-1.5 w-1.5 rounded-full ${colors.dot}`}
+                      />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
-
-              {/* DevOps Layer */}
-              <div
-                className={`p-4 md:p-6 rounded-lg transition-colors border-2 ${
-                  selectedStack === "devops"
-                    ? "bg-teal-500/20 border-teal-500/50"
-                    : "bg-gray-800/50 hover:bg-gray-800/80 border-transparent"
-                }`}
-                onMouseEnter={() => setSelectedStack("devops")}
-                onMouseLeave={() => setSelectedStack(null)}
-              >
-                <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-teal-400">
-                  General & Tools
-                </h3>
-                <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-400">
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-teal-500 rounded-full" />
-                    Version Control (Git)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-teal-500 rounded-full" />
-                    RESTful API Consumption
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-teal-500 rounded-full" />
-                    problem solving & debugging
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
