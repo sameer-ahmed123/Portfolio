@@ -172,4 +172,82 @@ export const projects: Project[] = [
     gridColSpan: 12,
     gridRowSpan: 1,
   },
+  {
+  id: "mariam-crockery",
+  title: "Mariam Crockery",
+  description:
+    "A dual-backend e-commerce platform built to seamlessly toggle between a Shopify Headless architecture (Storefront API) and a custom Firebase backend, featuring real-time inventory, custom bundle deals, dynamic filtering, an admin dashboard, and direct WhatsApp ordering.",
+  category: "fullstack",
+  status: "available",
+  techStack: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Shopify Storefront API",
+    "Firebase",
+    "GraphQL",
+    "Vercel",
+  ],
+  highlights: [
+    "Dual-backend system supporting both Shopify Headless API and custom Firebase Firestore modes",
+    "Dedicated Firebase Admin Panel for live product catalog updates and order delivery tracking",
+    "Responsive interactive catalog with sticky filter sidebar and real-time category mapping",
+    "Product Detail Modal with sticky image gallery scrolling and dynamic bundle/frequently-bought-together listings",
+    "Integrated multi-channel checkout with Shopify hosted checkout, native Firebase order management, and direct WhatsApp order flow",
+    "Secure client session handling and GDPR-compliant cookie consent system",
+  ],
+  links: [
+    {
+      label: "Visit Store",
+      href: "https://mariamcrockery.vercel.app/",
+      external: true,
+    },
+  ],
+  deployUrl: "https://mariamcrockery.vercel.app/",
+  media: [
+    {
+      type: "screenshot",
+      src: "/projects/mariam-crockery.png",
+      alt: "Mariam Crockery e-commerce storefront screenshot",
+      width: 1200,
+      height: 800,
+    },
+    {
+      type: "mermaid",
+      title: "Dual-Backend & Firebase Admin Architecture",
+      chart: `flowchart TD
+    subgraph Frontend ["Next.js Frontend (Vercel)"]
+        UI["Storefront Catalog & Modals"]
+        Cart["Cart & Checkout Engine"]
+        AdminUI["Custom Firebase Admin Panel"]
+    end
+
+    subgraph ShopifyEngine ["Shopify Mode"]
+        SFAPI["Storefront API (GraphQL)"]
+        ShopifyCheckout["Shopify Hosted Payment"]
+    end
+
+    subgraph FirebaseEngine ["Firebase Mode"]
+        Firestore[("Firestore Database")]
+        FirebaseAuth["Firebase Auth (Admin/Users)"]
+        CustomCheckout["Custom Checkout & Order Flow"]
+        DirectWhatsApp["WhatsApp Order Direct"]
+    end
+
+    UI -->|"Shopify Mode"| SFAPI
+    Cart -->|"Checkout Redirect"| ShopifyCheckout
+
+    UI -->|"Firebase Mode"| Firestore
+    Cart -->|"Native Order Flow"| CustomCheckout
+    CustomCheckout -->|"Store Order"| Firestore
+    Cart -->|"Direct Checkout"| DirectWhatsApp
+
+    AdminUI -->|"Authenticate"| FirebaseAuth
+    AdminUI -->|"Manage Catalog & Orders"| Firestore`,
+    },
+  ],
+  gridColSpan: 12,
+  gridRowSpan: 1,
+}
 ];

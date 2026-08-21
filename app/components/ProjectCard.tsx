@@ -94,12 +94,15 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       {/* Media Block */}
       <div className="mb-4">
         {hasPreviewEmbed && project.deployUrl ? (
-          <div className="w-full">
+          <div className="flex flex-col gap-4 w-full">
             <ProjectLivePreview
               url={project.deployUrl}
               title={project.title}
               fallbackScreenshot={screenshot}
             />
+            {diagram && (
+              <ProjectMedia media={diagram} className="w-full" />
+            )}
           </div>
         ) : isStackedMedia ? (
           <div className="flex flex-col gap-4 w-full">
