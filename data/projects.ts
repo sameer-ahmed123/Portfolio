@@ -2,49 +2,81 @@ import type { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
-    id: "astro-blog",
-    title: "My Astro Blog",
+    id: "mariam-crockery",
+    title: "Mariam Crockery",
     description:
-      "A simple blog site built with Astro, using Markdown and MDX for efficient content management and static site generation.",
-    category: "frontend",
+      "A dual-backend e-commerce platform built to seamlessly toggle between a Shopify Headless architecture (Storefront API) and a custom Firebase backend, featuring real-time inventory, custom bundle deals, dynamic filtering, an admin dashboard, and direct WhatsApp ordering.",
+    category: "fullstack",
     status: "available",
-    techStack: ["Astro", "Markdown", "MDX", "CSS", "Vercel"],
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Shopify Storefront API",
+      "Firebase",
+      "GraphQL",
+      "Vercel",
+    ],
     highlights: [
-      "Astro for static site generation",
-      "Markdown/MDX content collections",
-      "Component-based UI with Astro islands",
-      "Deployed on Vercel",
+      "Dual-backend system supporting both Shopify Headless API and custom Firebase Firestore modes",
+      "Dedicated Firebase Admin Panel for live product catalog updates and order delivery tracking",
+      "Responsive interactive catalog with sticky filter sidebar and real-time category mapping",
+      "Product Detail Modal with sticky image gallery scrolling and dynamic bundle/frequently-bought-together listings",
+      "Integrated multi-channel checkout with Shopify hosted checkout, native Firebase order management, and direct WhatsApp order flow",
+      "Secure client session handling and GDPR-compliant cookie consent system",
     ],
     links: [
       {
-        label: "Visit Blog",
-        href: "https://astro-blog-eosin-phi.vercel.app/",
+        label: "Visit Store",
+        href: "https://mariamcrockery.vercel.app/",
         external: true,
       },
     ],
-    deployUrl: "https://astro-blog-eosin-phi.vercel.app/",
+    deployUrl: "https://mariamcrockery.vercel.app/",
     media: [
       {
         type: "screenshot",
-        src: "/projects/astro-blog.svg",
-        alt: "Astro Blog homepage screenshot",
+        src: "/projects/mariam-crockery.png",
+        alt: "Mariam Crockery e-commerce storefront screenshot",
         width: 1200,
         height: 800,
       },
       {
         type: "mermaid",
-        title: "Architecture",
+        title: "Dual-Backend & Firebase Admin Architecture",
         chart: `flowchart TD
-    Browser["User Browser"]
-    Astro["Astro SSG"]
-    Content["MDX / Markdown"]
-    Vercel["Vercel Hosting"]
-    Browser --> Astro
-    Astro --> Content
-    Astro --> Vercel`,
+    subgraph Frontend ["Next.js Frontend (Vercel)"]
+        UI["Storefront Catalog & Modals"]
+        Cart["Cart & Checkout Engine"]
+        AdminUI["Custom Firebase Admin Panel"]
+    end
+
+    subgraph ShopifyEngine ["Shopify Mode"]
+        SFAPI["Storefront API (GraphQL)"]
+        ShopifyCheckout["Shopify Hosted Payment"]
+    end
+
+    subgraph FirebaseEngine ["Firebase Mode"]
+        Firestore[("Firestore Database")]
+        FirebaseAuth["Firebase Auth (Admin/Users)"]
+        CustomCheckout["Custom Checkout & Order Flow"]
+        DirectWhatsApp["WhatsApp Order Direct"]
+    end
+
+    UI -->|"Shopify Mode"| SFAPI
+    Cart -->|"Checkout Redirect"| ShopifyCheckout
+
+    UI -->|"Firebase Mode"| Firestore
+    Cart -->|"Native Order Flow"| CustomCheckout
+    CustomCheckout -->|"Store Order"| Firestore
+    Cart -->|"Direct Checkout"| DirectWhatsApp
+
+    AdminUI -->|"Authenticate"| FirebaseAuth
+    AdminUI -->|"Manage Catalog & Orders"| Firestore`,
       },
     ],
-    gridColSpan: 4,
+    gridColSpan: 6,
     gridRowSpan: 1,
   },
   {
@@ -90,7 +122,53 @@ export const projects: Project[] = [
     UI --> Hosting`,
       },
     ],
-    gridColSpan: 8,
+    gridColSpan: 6,
+    gridRowSpan: 1,
+  },
+  {
+    id: "astro-blog",
+    title: "My Astro Blog",
+    description:
+      "A simple blog site built with Astro, using Markdown and MDX for efficient content management and static site generation.",
+    category: "frontend",
+    status: "available",
+    techStack: ["Astro", "Markdown", "MDX", "CSS", "Vercel"],
+    highlights: [
+      "Astro for static site generation",
+      "Markdown/MDX content collections",
+      "Component-based UI with Astro islands",
+      "Deployed on Vercel",
+    ],
+    links: [
+      {
+        label: "Visit Blog",
+        href: "https://astro-blog-eosin-phi.vercel.app/",
+        external: true,
+      },
+    ],
+    deployUrl: "https://astro-blog-eosin-phi.vercel.app/",
+    media: [
+      {
+        type: "screenshot",
+        src: "/projects/astro-blog.svg",
+        alt: "Astro Blog homepage screenshot",
+        width: 1200,
+        height: 800,
+      },
+      {
+        type: "mermaid",
+        title: "Architecture",
+        chart: `flowchart TD
+    Browser["User Browser"]
+    Astro["Astro SSG"]
+    Content["MDX / Markdown"]
+    Vercel["Vercel Hosting"]
+    Browser --> Astro
+    Astro --> Content
+    Astro --> Vercel`,
+      },
+    ],
+    gridColSpan: 4,
     gridRowSpan: 1,
   },
   {
@@ -169,85 +247,7 @@ export const projects: Project[] = [
     API --> AIL`,
       },
     ],
-    gridColSpan: 12,
+    gridColSpan: 8,
     gridRowSpan: 1,
   },
-  {
-  id: "mariam-crockery",
-  title: "Mariam Crockery",
-  description:
-    "A dual-backend e-commerce platform built to seamlessly toggle between a Shopify Headless architecture (Storefront API) and a custom Firebase backend, featuring real-time inventory, custom bundle deals, dynamic filtering, an admin dashboard, and direct WhatsApp ordering.",
-  category: "fullstack",
-  status: "available",
-  techStack: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Shopify Storefront API",
-    "Firebase",
-    "GraphQL",
-    "Vercel",
-  ],
-  highlights: [
-    "Dual-backend system supporting both Shopify Headless API and custom Firebase Firestore modes",
-    "Dedicated Firebase Admin Panel for live product catalog updates and order delivery tracking",
-    "Responsive interactive catalog with sticky filter sidebar and real-time category mapping",
-    "Product Detail Modal with sticky image gallery scrolling and dynamic bundle/frequently-bought-together listings",
-    "Integrated multi-channel checkout with Shopify hosted checkout, native Firebase order management, and direct WhatsApp order flow",
-    "Secure client session handling and GDPR-compliant cookie consent system",
-  ],
-  links: [
-    {
-      label: "Visit Store",
-      href: "https://mariamcrockery.vercel.app/",
-      external: true,
-    },
-  ],
-  deployUrl: "https://mariamcrockery.vercel.app/",
-  media: [
-    {
-      type: "screenshot",
-      src: "/projects/mariam-crockery.png",
-      alt: "Mariam Crockery e-commerce storefront screenshot",
-      width: 1200,
-      height: 800,
-    },
-    {
-      type: "mermaid",
-      title: "Dual-Backend & Firebase Admin Architecture",
-      chart: `flowchart TD
-    subgraph Frontend ["Next.js Frontend (Vercel)"]
-        UI["Storefront Catalog & Modals"]
-        Cart["Cart & Checkout Engine"]
-        AdminUI["Custom Firebase Admin Panel"]
-    end
-
-    subgraph ShopifyEngine ["Shopify Mode"]
-        SFAPI["Storefront API (GraphQL)"]
-        ShopifyCheckout["Shopify Hosted Payment"]
-    end
-
-    subgraph FirebaseEngine ["Firebase Mode"]
-        Firestore[("Firestore Database")]
-        FirebaseAuth["Firebase Auth (Admin/Users)"]
-        CustomCheckout["Custom Checkout & Order Flow"]
-        DirectWhatsApp["WhatsApp Order Direct"]
-    end
-
-    UI -->|"Shopify Mode"| SFAPI
-    Cart -->|"Checkout Redirect"| ShopifyCheckout
-
-    UI -->|"Firebase Mode"| Firestore
-    Cart -->|"Native Order Flow"| CustomCheckout
-    CustomCheckout -->|"Store Order"| Firestore
-    Cart -->|"Direct Checkout"| DirectWhatsApp
-
-    AdminUI -->|"Authenticate"| FirebaseAuth
-    AdminUI -->|"Manage Catalog & Orders"| Firestore`,
-    },
-  ],
-  gridColSpan: 12,
-  gridRowSpan: 1,
-}
 ];
