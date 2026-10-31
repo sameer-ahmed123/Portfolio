@@ -172,6 +172,100 @@ export const projects: Project[] = [
     gridRowSpan: 1,
   },
   {
+  id: "hrms-platform",
+  title: "Enterprise HRMS & ERP Portal",
+  description: "A role-based HRMS portal for employee and organization management, recruitment, document and policy workflows, attendance and leave, and asset inventory. It includes CV extraction and scoring, template-driven PDF generation, OCR-assisted asset imports, and recruitment-stage email updates.",
+  category: "fullstack",
+  status: "available",
+  techStack: [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Django",
+    "Django REST Framework",
+    "SQLite",
+    "Tailwind CSS",
+    "Simple JWT",
+    "RapidOCR",
+    "Cloudflare R2",
+  ],
+  highlights: [
+    "Role-based access control for Admin, HR, Team Lead, Employee, and Finance roles.",
+    "Recruitment workflow from hiring requests and public job listings to candidate stages, with automated CV scoring.",
+    "Employee document requests, template-based PDF generation, and policy management.",
+    "Attendance and work-from-home tracking, multi-step leave approvals, and month-end attendance controls.",
+    "Asset management with OCR-assisted imports, plus email updates for recruitment stages.",
+  ],
+  links: [
+    {
+      label: "View Repository",
+      href: "https://github.com/sameer-ahmed123/HR-CSS",
+      external: true,
+    },
+  ],
+  media: [
+    {
+      type: "screenshot",
+      src: "/projects/hr-css.png",
+      alt: "Enterprise HRMS Platform Screenshot",
+      width: 1200,
+      height: 800,
+    },
+    {
+      type: "mermaid",
+      title: "Module Architecture & Data Flow",
+      chart: `flowchart TD
+    subgraph UI["Presentation Layer"]
+      Layout["Responsive Shared Layout"]
+      Dashboards["Role-based HRMS Pages"]
+      Careers["Public Careers & Application Pages"]
+    end
+
+    subgraph Core["Application Core / Modules"]
+      Auth["Authentication & Role Access"]
+      Recruitment["Recruitment & ATS"]
+      Documents["Documents & Policies"]
+      Attendance["Attendance & Leave"]
+      Inventory["Asset Inventory"]
+    end
+
+    subgraph Services["Processing & Automation"]
+      CV["CV Extraction & Scoring"]
+      OCR["Asset OCR Import"]
+      PDF["Template-based PDF Generation"]
+      Email["Recruitment Stage Emails"]
+    end
+
+    subgraph Data["Data Layer"]
+      DB["SQLite Database"]
+      Storage["Cloudflare R2 File Storage"]
+    end
+
+    Layout --> Dashboards
+    Dashboards --> Auth
+    Careers --> Recruitment
+    Dashboards --> Recruitment
+    Dashboards --> Documents
+    Dashboards --> Attendance
+    Dashboards --> Inventory
+    Recruitment --> CV
+    Recruitment --> Email
+    Documents --> PDF
+    Inventory --> OCR
+    Auth --> DB
+    Recruitment --> DB
+    Documents --> DB
+    Attendance --> DB
+    Inventory --> DB
+    CV --> Storage
+    PDF --> Storage
+    OCR --> Storage`,
+    },
+  ],
+  gridColSpan: 8,
+  gridRowSpan: 1,
+},
+  {
     id: "smartlearn",
     title: "SmartLearn",
     description:
@@ -250,4 +344,5 @@ export const projects: Project[] = [
     gridColSpan: 8,
     gridRowSpan: 1,
   },
+  
 ];
